@@ -1,0 +1,28 @@
+name: vpls
+
+topology:
+  nodes:
+    r1:
+      kind: vr-sros
+      image: vrnetlab/vr-sros:20.10.R1
+      license: sros-license.key
+    r2:
+      kind: vr-vmx
+      image: vrnetlab/vr-vmx:20.4R1.12
+    r3:
+      kind: vr-sros
+      image: vrnetlab/vr-sros:20.10.R1
+      license: sros-license.key
+    ce1:
+      kind: linux
+      image: ghcr.io/hellt/network-multitool
+    ce2:
+      kind: linux
+      image: ghcr.io/hellt/network-multitool
+
+  links:
+    - endpoints: ["r1:eth1", "r2:eth1"]
+    - endpoints: ["r1:eth2", "r3:eth1"]
+    - endpoints: ["r2:eth2", "r3:eth2"]
+    - endpoints: ["ce1:eth1", "r1:eth3"]
+    - endpoints: ["ce2:eth1", "r2:eth3"]
