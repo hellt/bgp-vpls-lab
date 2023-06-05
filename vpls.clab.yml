@@ -3,14 +3,14 @@ name: vpls
 topology:
   nodes:
     r1:
-      kind: vr-sros
-      image: vrnetlab/vr-sros:20.10.R1
+      kind: vr-nokia_sros
+      image: vrnetlab/vr-sros:23.3.R2
       license: sros-license.key
     r2:
-      kind: vr-vmx
+      kind: vr-juniper_vmx
       image: vrnetlab/vr-vmx:20.4R1.12
     r3:
-      kind: vr-sros
+      kind: vr-nokia_sros
       image: vrnetlab/vr-sros:20.10.R1
       license: sros-license.key
     ce1:
